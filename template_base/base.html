@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Cempaka Foundation</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/img/favicon.png" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/img/apple-touch-icon.png" %}">
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/vendor/icofont/icofont.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/vendor/boxicons/css/boxicons.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/vendor/owl.carousel/assets/owl.carousel.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/vendor/remixicon/remixicon.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/vendor/aos/aos.css" %}">
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static "landingpage/css/style.css" %}">
+
+
+  </head>
+
+  <body>
+    {% block content %}
+    {% endblock content %}
+
+    {% block javascript %}
+    {% endblock javascript %}
+  </body>
+</html>
