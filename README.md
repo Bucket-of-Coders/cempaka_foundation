@@ -18,7 +18,7 @@ Python >= 3.7
 * When create a new app inside the project, use this format to register the new app ``example_app.apps.ExampleAppConfig`` so we can differentiate which one is an app or package
 * 
 
-##Branch:
+## Branch:
 
 * branch 'main' for final code
 * branch 'review' for code that need to review
