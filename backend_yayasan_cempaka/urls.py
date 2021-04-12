@@ -22,7 +22,8 @@ from landingpage import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landingpage.urls')),
-    path('ckeditor', include('ckeditor_uploader.urls'))
+    path('ckeditor', include('ckeditor_uploader.urls')),
+    path('', include('login.urls')),
 ]
 
 ## add media and static files
