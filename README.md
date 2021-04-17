@@ -5,9 +5,11 @@ Python >= 3.7
 
 ## How to run:
 
-* Create virtual environment
+* Create virtual environment (python -m venv name)
 * Activate virtual environment
-* Install all requirements ``pip install -r requirement.txt``
+  - Windows (.\name\Scripts\activate)
+  - linux (source name/bin/activate)
+* Install all requirements ``pip install -r requirement.txt`` at the project folder
 
 ## Rules:
 
