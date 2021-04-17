@@ -10,6 +10,7 @@ Python >= 3.7
   - Windows (.\name\Scripts\activate)
   - linux (source name/bin/activate)
 * Install all requirements ``pip install -r requirement.txt`` at the project folder
+* (in project folder) ``python manage.py runserver`` to run web on local computer
 
 ## Rules:
 
