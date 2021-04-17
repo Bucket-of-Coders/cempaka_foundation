@@ -3,6 +3,6 @@ from . import views
 
 #this url patterns is looking to views.py in blog app directory
 urlpatterns = [
-    path('', views.landingpage, name='landingpage'),
-    path('send', views.send_email, name='send')
+    path('user/login', views.login_user, name='login'),
+    path('user/logout', views.logout_user, name='logout'),
 ]
