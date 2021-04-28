@@ -57,11 +57,9 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-<<<<<<< HEAD
-#db.sqlite3
-#db.sqlite3-journal
-=======
->>>>>>> 1d7c36bff1747a68f202ec83aa060d02671fa2db
+
+db.sqlite3
+db.sqlite3-journal
 
 # Flask stuff:
 instance/
