@@ -25,7 +25,9 @@ SECRET_KEY = '%%a4%i0typ5ty^+td0j1y8c8$xuc-g1qlp4&c1e#=k)h=bfb9y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.100.8', ## iqbal ip
+]
 
 
 # Application definition
@@ -77,12 +79,25 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+## sementara pake cloud
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'bucketofcoders',
+        'PASSWORD': 'BucketOfCoders123',
+        'HOST': 'pgm-gs537z9h7kip6t1xqo.pgsql.singapore.rds.aliyuncs.com',
+        'PORT': '1921',
     }
 }
+
 
 
 # Password validation

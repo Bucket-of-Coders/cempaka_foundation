@@ -1,84 +1,196 @@
 {% extends 'template_base/base.html' %}
 {% load static %}
 
+<!--<body>-->
+<!--    &lt;!&ndash; ======= Header ======= &ndash;&gt;-->
+<!--    <header id="header" class="fixed-top header-inner-pages">-->
+<!--        <div class="container d-flex align-items-center justify-content-between">-->
+<!--            <h1 class="logo">-->
+<!--                <a href="index.html">Yayasan Cempaka</span></a>-->
+<!--            </h1>-->
+<!--            &lt;!&ndash; Uncomment below if you prefer to use an image logo &ndash;&gt;-->
+<!--            &lt;!&ndash; <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>&ndash;&gt;-->
+
+<!--            <nav class="nav-menu d-none d-lg-block">-->
+<!--                <ul>-->
+<!--                    <li class="active"><a href="index.html">Home</a></li>-->
+<!--                    <li><a href="#about">About</a></li>-->
+<!--                    <li><a href="#services">News</a></li>-->
+<!--                    <li><a href="#portfolio">Program & Activity</a></li>-->
+<!--                    <li><a href="#team">Team</a></li>-->
+<!--                    <li><a href="#contact">Contact</a></li>-->
+<!--                    <li><a href="#contact">Hutan Asuh</a></li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--            &lt;!&ndash; .nav-menu &ndash;&gt;-->
+<!--        </div>-->
+<!--    </header>-->
+    <!-- End Header -->
+<!--    <main id="main">-->
+
 {% block css %}
-	<!--  login css  -->
-    <link rel="stylesheet" type="text/css" href="{% static "login/css/main.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "login/css/util.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "login/css/animate.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "login/css/bootstrap.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "login/css/hamburgers.min.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "login/css/select2.css" %}">
+    <link href="{% static 'login/image/favicon.png' %}" rel="icon" />
+    <link href="{% static 'login/image/apple-touch-icon.png' %}apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'login/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'login/css/icofont.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'login/css/boxicons.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'login/css/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'login/css/venobox.css' %}" rel="stylesheet" />
+    <link href="{% static 'login/css/remixicon.css' %}" rel="stylesheet" />
+    <link href="{% static 'login/css/aos.css' %}" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'login/css/style.css' %}" rel="stylesheet" />
 {% endblock css %}
 
 {% block content %}
-	<div class="fixed-top" style="height:8%;z-index:102;background:rgba(0, 0, 0, 0.8)"><p>  </p></div>
-	<div class="limiter" style="margin-top:4%">
-		<div class="container-login100" id="wrapper-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img clas="imeg" src="{% static 'login/image/apple-touch-icon.png' %}" alt="IMG">
-				</div>
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
 
-				<form class="login100-form validate-form" method="POST">{% csrf_token %}
-					<span class="login100-form-title">
-						Member Login
-					</span>
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Login Page</li>
+                    </ol>
+                </div>
 
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="username" placeholder="Email">
-						<input type="hidden" name="next" value="{{ request.path }}">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
+            </div>
+        </section>
+        <!-- End Breadcrumbs -->
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
+        <section class="inner-page">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">DEMO SINGKAT</h5>
+                                <p class="card-text">INI CONTENT DEMO SINGKAT.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <section id="contact" class="contact">
+                                    <div class="container" data-aos="fade-up">
+                                        <div class="section-title">
+                                            <p>LOGIN</p>
+                                        </div>
+                                        <div>
+                                            <form class="php-email-form">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="subject" id="subject"
+                                                        placeholder="Username" data-rule="minlen:4"
+                                                        data-msg="Please enter at least 8 chars of subject" />
+                                                    <div class="validate"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="subject" id="subject"
+                                                        placeholder="Pssword" data-rule="minlen:4"
+                                                        data-msg="Please enter at least 8 chars of subject" />
+                                                    <div class="validate"></div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn-lg btn-block">LOGIN</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn">
-							Login
-						</button>
-					</div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
 
-					<div class="text-center p-t-136">
-						<p class="txt2" style="color:white;">
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-info">
+                                <h3>Yayasan Cempaka</span></h3>
+                                <p>
+                                    Gamoh, Dayurejo, Kec. Prigen, Pasuruan<br />
+                                    Jawa Timur 67157, INDONESIA<br /><br />
+                                    <strong>Phone:</strong> +62 81230002557<br />
+                                    <strong>Email:</strong> info@example.com<br />
+                                </p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</p>
-					</div>
-				</form>
-			</div>
-			<div class="container container-login100" id="wrapper-login100" style="align-items: unset;justify-content: flex-start">
-				<p style="font-size:16px"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-			</div>
-		</div>
-	</div>
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">Terms of service</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">Privacy policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 {% endblock content %}
+<!--            <div class="container">-->
+<!--                <div class="copyright">-->
+<!--                    Yayasan Cempaka <strong><span>&copy;2021</span></strong>. All Rights Reserved-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </footer>-->
+        <!-- End Footer -->
 
-{% block javascript %}
-	<script src="{% static "login/js/main.js" %}"></script>
-    <script src="{% static "login/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "login/js/jquery.min.js" %}"></script>
-    <script src="{% static "login/js/popper.min.js" %}"></script>
-    <script src="{% static "login/js/select2.js" %}"></script>
-    <script src="{% static "login/js/tilt.jquery.min.js" %}"></script>
-    <script src="{% static "login/js/tooltop.js" %}"></script>
-{% endblock javascript %}
+<!--        <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>-->
+<!--        <div id="preloader"></div>-->
+
+
+{% block script %}
+    <!-- Vendor JS Files -->
+    <script src="{% static 'login/js/aso.js' %}"></script>
+    <script src="{% static 'login/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'login/js/counterup.min.js' %}"></script>
+    <script src="{% static 'login/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'login/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'login/js/jquery.min.js' %}"></script>
+    <script src="{% static 'login/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'login/js/venobox.min.js' %}"></script>
+    <script src="{% static 'login/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'login/js/validate.js' %}></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+{% endblock script %}
