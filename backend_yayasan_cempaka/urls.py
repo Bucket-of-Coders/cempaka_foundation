@@ -20,11 +20,13 @@ from django.conf.urls.static import static
 from landingpage import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', include('landingpage.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('', include('login.urls')),
     path('', include('article.urls')),
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
 ]
 
 ## add media and static files
