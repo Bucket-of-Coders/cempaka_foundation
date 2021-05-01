@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('landingpage.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('', include('login.urls')),
+    path('', include('article.urls')),
 ]
 
 ## add media and static files
