@@ -33,14 +33,18 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'landingpage.apps.LandingpageConfig', #apps landingpage
+    #our custom apps
+    'landingpage.apps.LandingpageConfig',
+    'login.apps.LoginConfig',
+    'article.apps.ArticleConfig',
+    # django module apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # for extra module
+    # for extra module apps
     'ckeditor',
     'ckeditor_uploader',
 ]
