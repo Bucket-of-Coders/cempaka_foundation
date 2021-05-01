@@ -1,11 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from . import models
 
 # Create your views here.
 
 def login_user(request):
+    body_demo = models.Login_page.objects.get(name='Edit Login Page Demo')
+
     if request.user.is_authenticated:
-        return redirect(request.META.get('HTTP_REFERER'))
+        try:
+            return redirect(request.META.get('HTTP_REFERER'))
+        except Exception:
+            return  redirect('/')
     fail = False
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -19,7 +25,8 @@ def login_user(request):
             fail = True
 
     content_list = {
-        'fail': fail
+        'fail': fail,
+        'db': body_demo
     }
 
     return render(request, 'login/templates/login.html', content_list)
