@@ -33,6 +33,8 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     #our custom apps
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
