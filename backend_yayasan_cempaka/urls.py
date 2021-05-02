@@ -25,6 +25,7 @@ urlpatterns = [
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('', include('login.urls')),
     path('', include('article.urls')),
+    path('', include('program_activity.urls')),
     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
 ]
