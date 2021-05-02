@@ -10,7 +10,7 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{% url 'landingpage' %}">Home</a></li>
                     <li>Program & Activity</li>
                 </ol>
             </div>
@@ -32,7 +32,7 @@
                                 <a class="text-dark" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                             </h3>
                             <div class="mb-1 text-muted"> {{ post.date_posted|date:"d M Y" }}</div>
-                            <p class="card-text mb-auto">{{ post.description | safe | truncatechars:240 }}</p>
+                            <p class="card-text mb-auto">{{ post.meta_description | safe | truncatechars:240 }}</p>
                             <a href="{{ post.get_absolute_url }}">Continue reading</a>
                             <small>{{ post.category }}</small>
 

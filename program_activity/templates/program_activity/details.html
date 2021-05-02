@@ -9,10 +9,11 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfolio Details</h2>
+          <h2>Program & Activity</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Portfolio Details</li>
+            <li><a href="{% url 'login' %}">Home</a></li>
+            <li><a href="{% url 'list_program_activity' %}">Program & Activity</a></li>
+            <li>{{ detail.title }}</li>
           </ol>
         </div>
 
