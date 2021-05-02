@@ -2,14 +2,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.core.mail import EmailMultiAlternatives
 from . import models
+# from program_activity.models import Program_activity mau ditambah ini tapi karena pake get_object_or_404 jadi belum bisa.
 
 #landing page views
 def landingpage(request):
 	landing_page_text = get_object_or_404(models.Landing_page)
 	sponsor_logos = models.Sponsor.objects.filter(post=landing_page_text)
+	# program_activity_landingpage = Program_activity.objects.all().order_by('-date_posted')[0:12]
+
 	context = {
 		'LP': landing_page_text,
-		'sponsor_logos': sponsor_logos
+		'sponsor_logos': sponsor_logos,
+		# 'PA': program_activity_landingpage
 	}
 	return render(request, 'landingpage/templates/landingpage/landing_page.html', context)
 
