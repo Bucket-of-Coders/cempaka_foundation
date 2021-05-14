@@ -8,6 +8,7 @@ class Add_article(models.Model):
     name = models.CharField(max_length=255, default='')
     banner = models.ImageField(upload_to='article_images', default='')
     category = models.CharField(max_length=255, null=True)
+    meta_description = models.CharField(max_length=255, default='')
     body = RichTextUploadingField()
     time = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=255, blank=True, editable=False)
