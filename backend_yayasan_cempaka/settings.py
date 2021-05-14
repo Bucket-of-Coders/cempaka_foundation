@@ -33,7 +33,8 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_black.apps.AdminBlackConfig',
+    'jet.dashboard',
+    'jet',
     #our custom apps
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
@@ -58,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'backend_yayasan_cempaka.urls'
@@ -162,6 +162,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bucketofcoders@bucketofcoders.com'
 EMAIL_HOST_PASSWORD = 'BucketOfCoders123'
-
-import django_heroku
-django_heroku.settings(locals())
