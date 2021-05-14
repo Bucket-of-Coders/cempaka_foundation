@@ -163,5 +163,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bucketofcoders@bucketofcoders.com'
 EMAIL_HOST_PASSWORD = 'BucketOfCoders123'
 
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())
