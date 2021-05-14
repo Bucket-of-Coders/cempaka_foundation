@@ -9,3 +9,7 @@ def article_bay(request):
         'data':db
     }
     return render(request, 'article/templates/article.html', context)
+
+def read_more(request, slug):
+    db = models.Add_article.objects.get(slug=slug)
+    return render(request, 'article/templates/details.html', {'data':db})

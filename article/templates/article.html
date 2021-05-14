@@ -1,6 +1,10 @@
 {% extends 'template_base/base.html' %}
 {% load static %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'article/css/style.css' %}">
+{% endblock css %}
+
 {% block content %}
     <main id="main">
 
@@ -19,29 +23,41 @@
         </section>
         <!-- End Breadcrumbs -->
 
-        <section class="inner-page">
-            <div class="container">
-                <div class="row mb-2">
-                    {% for datas in data %}
-                        <div class="col-md-6">
-                            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                                <div class="card-body d-flex flex-column align-items-start">
-                                    <strong class="d-inline-block mb-2 text-success">{{ datas.category }}</strong>
-                                    <h3 class="mb-0">
-                                        <a class="text-dark" href="#">{{ datas.name }}</a>
-                                    </h3>
-                                    <div class="mb-1 text-muted">{{ datas.time |date:'d b Y'}}</div>
-                                    <p class="card-text mb-auto">{{ datas.body | safe }}</p>
-                                    <a href="#">Continue reading</a>
-                                </div>
-                                <img class="card-img-right flex-auto d-none d-md-block" src="{{ datas.banner.url }}"
-                                    alt="Card image cap">
-                            </div>
+        <section class="wrapper">
+          <div class="container-fostrap">
+            <div class="content">
+              <div class="container">
+                <div class="row">
+
+                  {% for datas in data %}
+                      <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                          <a class="img-card" href="{% url 'details' slug=datas.slug %}">
+                            <img src="{{datas.banner.url}}" />
+                          </a>
+                          <div class="card-content">
+                            <h4 class="card-title">
+                              <a href="{% url 'details' slug=datas.slug %}">{{ datas.name }} </a><br>
+                              <small>{{ datas.category }}</small>
+                            </h4>
+                            <p class="">
+                              {{ datas.meta_description | safe }}
+                            </p>
+                          </div>
+                          <div class="card-read-more">
+                            <a href="{% url 'details' slug=datas.slug %}" class="btn btn-link btn-block">
+                              Read More
+                            </a>
+                          </div>
                         </div>
-                    {% endfor %}
+                      </div>
+                  {% endfor %}
+
 
                 </div>
+              </div>
             </div>
+          </div>
         </section>
 {% endblock content %}
 
