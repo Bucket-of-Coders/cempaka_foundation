@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.100.8', ## iqbal ip
-    '127.0.0.1' #misalnya mau pake localhost tanpa certain ip
+    '127.0.0.1', #misalnya mau pake localhost tanpa certain ip
+    'demo-cempaka.herokuapp.com',
 ]
 
 
