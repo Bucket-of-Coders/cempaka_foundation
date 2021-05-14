@@ -27,18 +27,21 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.100.8', ## iqbal ip
+    '127.0.0.1' #misalnya mau pake localhost tanpa certain ip
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    #admin
     'jet.dashboard',
     'jet',
     #our custom apps
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
     'article.apps.ArticleConfig',
+    'program_activity.apps.ProgramActivityConfig', #apps program_activity    
     # django module apps
     'django.contrib.admin',
     'django.contrib.auth',
