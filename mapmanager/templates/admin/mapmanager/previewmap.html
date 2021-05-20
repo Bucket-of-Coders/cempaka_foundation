@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h2>{{ user.username|title }} Map Preview</h2>
+<br>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{frm}}
+<button type="submit">Edit</button>
+    
+
+<br>
+
+
+<iframe src="{{ user.urlrelasi.urlmap }}" width="640" height="480"></iframe>
+
+{% endblock %}
