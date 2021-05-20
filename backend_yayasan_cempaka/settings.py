@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'article.apps.ArticleConfig',
     'program_activity.apps.ProgramActivityConfig', #apps program_activity    
+    'mapmanager.apps.MapmanagerConfig',
     # django module apps
     'django.contrib.admin',
     'django.contrib.auth',
