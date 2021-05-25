@@ -6,11 +6,21 @@ from . import models
 class Sponsor_logo_admin(admin.StackedInline):
     model = models.Sponsor
 
+class User_review_admin(admin.StackedInline):
+    model = models.User_review
+
+class Management_team_admin(admin.StackedInline):
+    model = models.Management_team
+
 @admin.register(models.Landing_page)
 class Landing_page_modification(admin.ModelAdmin):
     list_display = ('name', )
     list_per_page = 20
-    inlines = [Sponsor_logo_admin]
+    inlines = [
+        Sponsor_logo_admin,
+        User_review_admin,
+        Management_team_admin
+    ]
 
     #make field disable cannot be edited
     readonly_fields = ['name']
@@ -28,5 +38,13 @@ class Landing_page_modification(admin.ModelAdmin):
 
 @admin.register(models.Sponsor)
 class Sponsor_logo_admin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.User_review)
+class User_review_admin(admin.ModelAdmin):
+    pass
+
+@admin.register(models.Management_team)
+class Management_team_admin(admin.ModelAdmin):
     pass
 ## END register landing page and disable add and remove button
