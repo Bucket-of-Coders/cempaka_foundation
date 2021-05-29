@@ -22,6 +22,7 @@ from landingpage import views
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', include('landingpage.urls')),
+    path('', include('sponsor_dashboard.urls')),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('', include('login.urls')),
     path('', include('article.urls')),

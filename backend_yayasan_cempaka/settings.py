@@ -33,7 +33,6 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
-
 INSTALLED_APPS = [
     #admin
     'jet.dashboard',
@@ -42,8 +41,9 @@ INSTALLED_APPS = [
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
     'article.apps.ArticleConfig',
-    'program_activity.apps.ProgramActivityConfig', #apps program_activity    
+    'program_activity.apps.ProgramActivityConfig', #apps program_activity
     'mapmanager.apps.MapmanagerConfig',
+    'sponsor_dashboard.apps.SponsorDashboardConfig',
     # django module apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
