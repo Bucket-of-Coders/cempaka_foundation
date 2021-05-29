@@ -102,11 +102,11 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'bucketofcoders',
-        'PASSWORD': 'BucketOfCoders123',
-        'HOST': 'pgm-gs537z9h7kip6t1xqo.pgsql.singapore.rds.aliyuncs.com',
-        'PORT': '1921',
+        'NAME': 'd4hustlcrgo2l2',
+        'USER': 'rbkmdiginvwwgi',
+        'PASSWORD': 'f6e5d1461068aec9e649f235322dd6add90db61af9ac05212aca57f5dd442027',
+        'HOST': 'ec2-34-193-113-223.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -149,9 +149,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 ## uncomment if want to run on local
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "staticfiles")
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles")
+]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
