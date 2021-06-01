@@ -18,22 +18,11 @@ CATEGORY = (
 		(CA, 'Cempaka Adventure'),
 	)
 
-# class Program_activity_image(models.Model):
-# 	# image_name = models.CharField(max_length=200, blank=False, null=True, verbose_name='Nama Foto')
-# 	# image = models.ImageField(upload_to='uploads/on_going', null=True, blank=False, verbose_name='Foto')
-	
-# 	class Meta:	
-# 		verbose_name_plural = "Program Activity"
-
-# 	def __str__(self):
-# 		return f"{self.image_name}"
-
-
 class Program_activity(models.Model):
 	slug = models.SlugField(null=False, unique=True, verbose_name='URL')
 	title = models.CharField(max_length=200, blank=False, null=True, verbose_name='Judul')
 	image = models.ImageField(upload_to='uploads/on_going', null=True, blank=False, verbose_name='Foto')
-	meta_description = RichTextField(blank=True, null=True, verbose_name='meta_description')
+	meta_description = models.CharField(max_length=255, blank=True, null=True, verbose_name='meta_description')
 	description = RichTextUploadingField(blank=True, null=True, verbose_name='Artikel')
 	date_posted = models.DateTimeField(auto_now_add=False, auto_now=True)
 	category = models.CharField(max_length=20, verbose_name="Kategori", choices=CATEGORY, blank=False, null=False)
