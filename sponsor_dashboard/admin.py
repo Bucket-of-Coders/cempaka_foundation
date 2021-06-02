@@ -15,6 +15,14 @@ class User_sponsor_admin(admin.ModelAdmin):
     class Meta:
         model = models.User_sponsor
 
-@admin.register(models.Sponsor_galery)
+class MyModelAdmin(admin.ModelAdmin):
+    class Meta:
+        model = models.Sponsor_galery
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+admin.site.register(models.Sponsor_galery, MyModelAdmin)
 class Galery_sponsor(admin.ModelAdmin):
     pass

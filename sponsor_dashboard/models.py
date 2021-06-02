@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from datetime import date as dt
-
 # Create your models here.
 
 class User_sponsor(models.Model):
@@ -13,4 +12,4 @@ class User_sponsor(models.Model):
 class Sponsor_galery(models.Model):
     post = models.ForeignKey(User_sponsor, default='', on_delete=models.CASCADE)
     date = models.DateField(default=dt(2020, 10, 18))
-    images = models.ImageField(upload_to=str(User_sponsor.sponsor_name)+'_image')
+    images = models.ImageField(upload_to='_image')
