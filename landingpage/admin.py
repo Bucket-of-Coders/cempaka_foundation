@@ -6,11 +6,29 @@ from . import models
 class Sponsor_logo_admin(admin.StackedInline):
     model = models.Sponsor
 
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+
 class User_review_admin(admin.StackedInline):
     model = models.User_review
 
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+
 class Management_team_admin(admin.StackedInline):
     model = models.Management_team
+
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
 
 @admin.register(models.Landing_page)
 class Landing_page_modification(admin.ModelAdmin):
@@ -25,26 +43,40 @@ class Landing_page_modification(admin.ModelAdmin):
     #make field disable cannot be edited
     readonly_fields = ['name']
 
-    # # This will help you to disbale add functionality
-    # def has_add_permission(self, request):
-    #     return False
-    #
-    # # This will help you to disable delete functionality
-    # def has_delete_permission(self, request, obj=None):
-    #     return False
+    # This will help you to disbale add functionality
+    def has_add_permission(self, request):
+        if models.Landing_page.objects.count() == 1:
+            return False
+
+    # This will help you to disable delete functionality
+    def has_delete_permission(self, request, obj=None):
+        if models.Landing_page.objects.count() == 1:
+            return False
 
     class Meta:
         model = models.Landing_page
 
-@admin.register(models.Sponsor)
 class Sponsor_logo_admin(admin.ModelAdmin):
-    pass
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+admin.site.register(models.Sponsor, Sponsor_logo_admin)
 
-@admin.register(models.User_review)
 class User_review_admin(admin.ModelAdmin):
-    pass
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+admin.site.register(models.User_review, User_review_admin)
 
-@admin.register(models.Management_team)
 class Management_team_admin(admin.ModelAdmin):
-    pass
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+admin.site.register(models.Management_team, Management_team_admin)
 ## END register landing page and disable add and remove button

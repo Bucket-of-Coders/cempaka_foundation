@@ -9,6 +9,12 @@ class User_sponsor(models.Model):
     sponsor_name = models.CharField(default='', max_length=255)
     sponsor_logo = models.ImageField(upload_to='sponsor_logo')
 
+    def __str__(self):
+        return self.sponsor_name
+
+    class Meta:
+        verbose_name_plural = 'Sponsors'
+
 class Sponsor_galery(models.Model):
     post = models.ForeignKey(User_sponsor, default='', on_delete=models.CASCADE)
     date = models.DateField(default=dt(2020, 10, 18))
