@@ -9,6 +9,10 @@ body {
     background: #fafafa;
 }
 
+.container{
+    height:35vw !important
+}
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -219,6 +223,10 @@ a.article, a.article:hover {
     }
     #sidebarCollapse.active span:last-of-type {
         transform: rotate(-45deg) translate(1px, -1px);
+    }
+
+    .container{
+        height:130vw !important
     }
 
 }
