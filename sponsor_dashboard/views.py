@@ -23,9 +23,10 @@ def dashboard_profile(request):
 
 def dashboard_galeery(request):
     data_sponsor = models.User_sponsor.objects.get(sponsor_user=request.user.id)
-    maps = Posisipohon.objects.get(relasi=request.user.id)
+    image_gallery = models.Sponsor_galery.objects.filter(post=data_sponsor)
+    print(image_gallery)
     context = {
-        'maps':maps,
-        'user': data_sponsor
+        'user': data_sponsor,
+        'image': image_gallery
     }
     return render(request, 'sponsor_dashboard/templates/index_gallery.html', context)
