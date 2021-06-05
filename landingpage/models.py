@@ -19,6 +19,10 @@ class Landing_page(models.Model):
     image_2 = models.ImageField(default='', upload_to='landing_page_image')
     image_3 = models.ImageField(default='', upload_to='landing_page_image')
 
+    bank_name = models.CharField(default='', max_length=50)
+    no_rek = models.IntegerField(default=1)
+    bank_account_owner = models.CharField(default='', max_length=255)
+
     class Meta:
         verbose_name_plural = 'Landing Page' ## change name in admin site from 'Landing_page' to 'Landing Page'
 
@@ -69,5 +73,15 @@ class Management_team(models.Model):
     class Meta:
         verbose_name_plural = 'BOARD & MANAGEMENT TEAM'
 
+class Question_answer(models.Model):
+    question = models.CharField(default='', max_length=100)
+    answer = RichTextField()
+    date = models.DateField(auto_now_add=True, blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.id}. {self.question}'
+
+    class Meta:
+        verbose_name_plural = 'Question & Answer'
 
 ## END landing page models

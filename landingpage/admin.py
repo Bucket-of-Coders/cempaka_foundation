@@ -6,29 +6,11 @@ from . import models
 class Sponsor_logo_admin(admin.StackedInline):
     model = models.Sponsor
 
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
-
 class User_review_admin(admin.StackedInline):
     model = models.User_review
 
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
-
 class Management_team_admin(admin.StackedInline):
     model = models.Management_team
-
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
 
 @admin.register(models.Landing_page)
 class Landing_page_modification(admin.ModelAdmin):
@@ -79,4 +61,13 @@ class Management_team_admin(admin.ModelAdmin):
         """
         return {}
 admin.site.register(models.Management_team, Management_team_admin)
+
+## FAQ
+@admin.register(models.Question_answer)
+class FAQ_modification(admin.ModelAdmin):
+    list_display = ('question',)
+
+    class Meta:
+        model = models.Question_answer
+
 ## END register landing page and disable add and remove button
