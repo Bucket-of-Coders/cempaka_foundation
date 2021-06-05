@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.core.mail import EmailMultiAlternatives
+from django.db.models import Q
 from . import models
 
 #landing page views
@@ -10,11 +11,16 @@ def landingpage(request):
 	user_review = models.User_review.objects.filter(post=landing_page_text)
 	management_team = models.Management_team.objects.filter(post=landing_page_text)
 
+	## FAQ
+	faq_model = models.Question_answer.objects.all().order_by('-date')
+
 	context = {
 		'LP': landing_page_text,
 		'sponsor_logos': sponsor_logos,
 		'review': user_review,
-		'team':management_team
+		'team':management_team,
+		'faq_categories': faq_model,
+		'question_answer': faq_model
 	}
 
 	return render(request, 'landingpage/templates/landingpage/landing_page.html', context)
