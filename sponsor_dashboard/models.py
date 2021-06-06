@@ -1,13 +1,13 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 from datetime import date as dt
 # Create your models here.
 
 class User_sponsor(models.Model):
-    sponsor_user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default="",
-                                  related_name='sponsorUser')
+    sponsor_user = models.OneToOneField(User, on_delete=models.CASCADE)
     sponsor_name = models.CharField(default='', max_length=255)
-    sponsor_logo = models.ImageField(upload_to='sponsor_logo', blank=True, null=True)
+    sponsor_logo = models.ImageField(upload_to='sponsor_logo', blank=True, null=True, default='staff_photos/default.png')
 
     def __str__(self):
         return self.sponsor_name
