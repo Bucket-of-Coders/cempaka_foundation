@@ -33,5 +33,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect(request.META.get('HTTP_REFERER'))
-    print(request.META.get('HTTP_REFERER'))
+    if request.path == '/user/logout':
+        return redirect('/')
+    else:
+        return redirect(request.META.get('HTTP_REFERER'))
