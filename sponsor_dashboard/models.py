@@ -7,7 +7,7 @@ class User_sponsor(models.Model):
     sponsor_user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default="",
                                   related_name='sponsorUser')
     sponsor_name = models.CharField(default='', max_length=255)
-    sponsor_logo = models.ImageField(upload_to='sponsor_logo')
+    sponsor_logo = models.ImageField(upload_to='sponsor_logo', blank=True, null=True)
 
     def __str__(self):
         return self.sponsor_name
