@@ -99,19 +99,19 @@
                 <strong>Email:</strong> info@example.com<br />
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"
+                {% comment %} <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> {% endcomment %}
+                <a href="https://www.facebook.com/cempakafoundation" class="facebook"
                   ><i class="bx bxl-facebook"></i
                 ></a>
-                <a href="#" class="instagram"
+                <a href="https://www.instagram.com/cempaka.foundation/" class="instagram"
                   ><i class="bx bxl-instagram"></i
                 ></a>
-                <a href="#" class="google-plus"
-                  ><i class="bx bxl-skype"></i
+                <a href="https://www.youtube.com/channel/UCI9tRgdcK5xnZN9Swg-kESg" class="youtube"
+                  ><i class="bx bxl-youtube"></i
                 ></a>
-                <a href="#" class="linkedin"
+                {% comment %} <a href="#" class="linkedin"
                   ><i class="bx bxl-linkedin"></i
-                ></a>
+                ></a> {% endcomment %}
               </div>
             </div>
           </div>
@@ -123,18 +123,21 @@
                 <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
               </li>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                <i class="bx bx-chevron-right"></i> <a href="#about">About Us</a>
               </li>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                <i class="bx bx-chevron-right"></i> <a href="{% url 'article' %}#services">Article</a>
+              </li>
+              <li>
+                <i class="bx bx-chevron-right"></i> <a href="{% url 'list_program_activity' %}#portfolio">Program & Activity</a>
               </li>
               <li>
                 <i class="bx bx-chevron-right"></i>
-                <a href="#">Terms of service</a>
+                <a href="#contact">Contact Us</a>
               </li>
               <li>
                 <i class="bx bx-chevron-right"></i>
-                <a href="#">Privacy policy</a>
+                <a href="#contact">Hutan Asuh</a>
               </li>
             </ul>
           </div>

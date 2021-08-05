@@ -1,8 +1,10 @@
+import article
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.core.mail import EmailMultiAlternatives
 from django.db.models import Q
 from . import models
+from article.models import Add_article
 
 #landing page views
 def landingpage(request):
@@ -11,8 +13,13 @@ def landingpage(request):
 	user_review = models.User_review.objects.filter(post=landing_page_text)
 	management_team = models.Management_team.objects.filter(post=landing_page_text)
 
+	##Articles
+	articles= Add_article.objects.all().order_by("-id")[:5]
+
+
 	## FAQ
 	faq_model = models.Question_answer.objects.all().order_by('-date')
+
 
 	context = {
 		'LP': landing_page_text,
@@ -20,7 +27,8 @@ def landingpage(request):
 		'review': user_review,
 		'team':management_team,
 		'faq_categories': faq_model,
-		'question_answer': faq_model
+		'question_answer': faq_model,
+		'articles' : articles,
 	}
 
 	return render(request, 'landingpage/templates/landingpage/landing_page.html', context)

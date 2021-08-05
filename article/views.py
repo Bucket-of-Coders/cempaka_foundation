@@ -13,3 +13,9 @@ def article_bay(request):
 def read_more(request, slug):
     db = models.Add_article.objects.get(slug=slug)
     return render(request, 'article/templates/details.html', {'data':db})
+
+def coba(request):
+    db = models.Add_article.objects.all().order_by("-id")[:5]
+    # db=db.reverse()
+    context={'articles':db}
+    return render(request,'article/templates/coba.html',context)
