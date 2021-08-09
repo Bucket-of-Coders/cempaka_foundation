@@ -6,22 +6,24 @@ from ckeditor_uploader.fields import RichTextUploadingField ## same as above but
 ## landing page Models
 class Landing_page(models.Model):
     name = models.CharField(default='Edit Landing Page', max_length=20)
+
     history = RichTextUploadingField()
+    history_image = models.ImageField(default='', upload_to='landing_page_image')
+
     visi_misi_and_core_value = RichTextField()
+    visi_misi_image = models.ImageField(default='', upload_to='landing_page_image')
+
     strategy_and_program = RichTextField()
+    strategy_and_program_image = models.ImageField(default='', upload_to='landing_page_image')
 
     office_location_map = models.CharField(default='#', max_length=1000)
     office_address = models.CharField(default='', max_length=1000)
     office_email = models.CharField(default='', max_length=255)
     office_phone_number = models.CharField(default='', max_length=255)
 
-    image_1 = models.ImageField(default='', upload_to='landing_page_image')
-    image_2 = models.ImageField(default='', upload_to='landing_page_image')
-    image_3 = models.ImageField(default='', upload_to='landing_page_image')
-
     bank_name = models.CharField(default='', max_length=50)
     no_rek = models.IntegerField(default=1)
-    bank_account_owner = models.CharField(default='', max_length=255)
+    bank_account_owner = models.CharField(default='', max_length=255) 
 
     class Meta:
         verbose_name_plural = 'Landing Page' ## change name in admin site from 'Landing_page' to 'Landing Page'
