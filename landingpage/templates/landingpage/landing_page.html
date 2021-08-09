@@ -36,7 +36,7 @@
               data-aos="fade-left"
               data-aos-delay="100"
             >
-              <img src="{{LP.history_image.url}}" class="img-fluid" alt="">
+              <img src="{{LP.image_1.url}}" class="img-fluid" alt="">
 
             </div>
             <div
@@ -64,7 +64,7 @@
               data-aos="fade-left"
               data-aos-delay="100"
             >
-              <img src="{{LP.visi_misi_image.url}}" class="img-fluid" alt="">
+              <img src="{{LP.image_1.url}}" class="img-fluid" alt="">
 
             </div>
             <div
@@ -87,7 +87,7 @@
               data-aos="fade-left"
               data-aos-delay="100"
             >
-              <img src="{{LP.strategy_and_program_image.url}}" class="img-fluid" alt="">
+              <img src="{{LP.image_1.url}}" class="img-fluid" alt="">
 
             </div>
             <div
@@ -102,6 +102,52 @@
         </div>
 
         <!--    end about ?    -->
+        <div class="row">
+          <div
+            class="col-lg-6 order-1 order-lg-2"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <img src"{% static "landingpage/img/about.jpg" %}" class="img-fluid" alt="" />
+
+          </div>
+          <div
+            class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <h3>
+              Voluptatem dignissimos provident quasi corporis voluptates sit
+              assumenda.
+            </h3>
+            <p class="font-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <ul>
+              <li>
+                <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
+                aliquip ex ea commodo consequat.
+              </li>
+              <li>
+                <i class="ri-check-double-line"></i> Duis aute irure dolor in
+                reprehenderit in voluptate velit.
+              </li>
+              <li>
+                <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate trideta storacalaperda mastiro
+                dolore eu fugiat nulla pariatur.
+              </li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident
+            </p>
+          </div>
+        </div>
       </div>
     </section>
     <!-- End About Section -->
@@ -119,39 +165,65 @@
     <!-- End Clients Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts section-title">
+    <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
-        <p class="main-title">Articles</p>
         <div class="row no-gutters">
-        <div
-          class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-          data-aos="fade-right"
-          data-aos-delay="100"
-          style="background: url('{{ articles_highlight.banner.url }}') center center no-repeat;"
-        ></div>
-        <div
-          class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch"
-          data-aos="fade-left"
-          data-aos-delay="100"
-        >
-          <div class="content d-flex flex-column justify-content-center">
-              <a style="margin:0px" href="{% url 'details' slug=articles_highlight.slug %}"><h3>{{articles_highlight.name}}</h3></a>
-              <p>{{articles_highlight.meta_description}}</p>
+          <div
+            class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
+            data-aos="fade-right"
+            data-aos-delay="100"
+            style="background: url('{{ articles.0.banner.url }}') center center no-repeat;"
+          ></div>
+          <div
+            class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <div class="content d-flex flex-column justify-content-center">
+              <h3>{{articles.0.name}}</h3>
+              <p>
+                {{articles.0.meta_description}}
+              </p>
               <div class="row">
-                {% for articles in articles %}
-                {% if not forloop.counter >= 5 %}
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="icofont-newspaper"></i>
-                    <a style="margin:0px" href="{% url 'details' slug=articles.slug %}"><span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden; font-size:20px'>{{articles.name}}</span></a>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.1.name}}</span>
                     <p>
-                      <strong>2. </strong> {{articles.meta_description}}
+                      <strong>2. </strong> {{articles.1.meta_description}}
                     </p>
                   </div>
                 </div>
-                {% endif %}
-                {% endfor %}
 
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.2.name}}</span>
+                    <p>
+                      <strong>3. </strong> {{articles.2.meta_description}}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.3.name}}</span>
+                    <p>
+                      <strong>4. </strong> {{articles.3.meta_description}}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.4.name}}</span>
+                    <p>
+                      <strong>5. </strong> {{articles.4.meta_description}}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- End .content-->

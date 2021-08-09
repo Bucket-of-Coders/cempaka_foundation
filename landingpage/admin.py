@@ -29,15 +29,11 @@ class Landing_page_modification(admin.ModelAdmin):
     def has_add_permission(self, request):
         if models.Landing_page.objects.count() == 1:
             return False
-        else:
-            return True
 
     # This will help you to disable delete functionality
     def has_delete_permission(self, request, obj=None):
         if models.Landing_page.objects.count() == 1:
             return False
-        else:
-            return True
 
     class Meta:
         model = models.Landing_page
