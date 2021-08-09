@@ -16,7 +16,7 @@
       >
         <div class="col-xl-12 col-lg-8">
           <h1>Ruang Interaksi</h1>
-           <h1>Manusia Dan Alam</h1>
+           <h1>Alam Dan Manusia</h1>
         </div>
       </div>
   </section>
@@ -172,6 +172,7 @@
             class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
             data-aos="fade-right"
             data-aos-delay="100"
+            style="background: url('{{ articles.0.banner.url }}') center center no-repeat;"
           ></div>
           <div
             class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch"
@@ -179,53 +180,47 @@
             data-aos-delay="100"
           >
             <div class="content d-flex flex-column justify-content-center">
-              <h3>Voluptatem dignissimos provident quasi</h3>
+              <h3>{{articles.0.name}}</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Duis aute irure dolor in reprehenderit
+                {{articles.0.meta_description}}
               </p>
               <div class="row">
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="icofont-simple-smile"></i>
-                    <span data-toggle="counter-up">65</span>
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.1.name}}</span>
                     <p>
-                      <strong>Happy Clients</strong> consequuntur voluptas
-                      nostrum aliquid ipsam architecto ut.
+                      <strong>2. </strong> {{articles.1.meta_description}}
                     </p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="icofont-document-folder"></i>
-                    <span data-toggle="counter-up">85</span>
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.2.name}}</span>
                     <p>
-                      <strong>Projects</strong> adipisci atque cum quia
-                      aspernatur totam laudantium et quia dere tan
+                      <strong>3. </strong> {{articles.2.meta_description}}
                     </p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="icofont-clock-time"></i>
-                    <span data-toggle="counter-up">12</span>
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.3.name}}</span>
                     <p>
-                      <strong>Years of experience</strong> aut commodi quaerat
-                      modi aliquam nam ducimus aut voluptate non vel
+                      <strong>4. </strong> {{articles.3.meta_description}}
                     </p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="icofont-award"></i>
-                    <span data-toggle="counter-up">15</span>
+                    <i class="icofont-newspaper"></i>
+                    <span style='text-overflow: ellipsis; white-space: nowrap;overflow: hidden;'>{{articles.4.name}}</span>
                     <p>
-                      <strong>Awards</strong> rerum asperiores dolor alias quo
-                      reprehenderit eum et nemo pad der
+                      <strong>5. </strong> {{articles.4.meta_description}}
                     </p>
                   </div>
                 </div>
