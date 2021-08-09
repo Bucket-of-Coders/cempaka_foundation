@@ -14,8 +14,7 @@ def landingpage(request):
 	management_team = models.Management_team.objects.filter(post=landing_page_text)
 
 	##Articles
-	articles_highlight = Add_article.objects.all().order_by("-time").first()
-	articles = Add_article.objects.all().exclude(id=articles_highlight.id).order_by("?")
+	articles= Add_article.objects.all().order_by("-id")[:5]
 
 
 	## FAQ
@@ -30,7 +29,6 @@ def landingpage(request):
 		'faq_categories': faq_model,
 		'question_answer': faq_model,
 		'articles' : articles,
-		'articles_highlight':articles_highlight
 	}
 
 	return render(request, 'landingpage/templates/landingpage/landing_page.html', context)
