@@ -23,7 +23,7 @@ class Landing_page(models.Model):
 
     bank_name = models.CharField(default='', max_length=50)
     no_rek = models.IntegerField(default=1)
-    bank_account_owner = models.CharField(default='', max_length=255)
+    bank_account_owner = models.CharField(default='', max_length=255) 
 
     class Meta:
         verbose_name_plural = 'Landing Page' ## change name in admin site from 'Landing_page' to 'Landing Page'
