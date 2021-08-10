@@ -56,7 +56,7 @@ class User_review_admin(admin.ModelAdmin):
         Return empty perms dict thus hiding the model from admin index.
         """
         return {}
-admin.site.register(models.User_review)
+admin.site.register(models.User_review, User_review_admin)
 
 class Management_team_admin(admin.ModelAdmin):
     def get_model_perms(self, request):
