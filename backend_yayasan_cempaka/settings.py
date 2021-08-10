@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# AUTH_USER_MODEL = 'login.User'
+AUTH_USER_MODEL = 'login.Users'
 
 
 # Quick-start development settings - unsuitable for production
@@ -151,9 +151,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 ## uncomment if want to run on local
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "staticfiles")
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles")
+]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -56,7 +56,7 @@ class User_review_admin(admin.ModelAdmin):
         Return empty perms dict thus hiding the model from admin index.
         """
         return {}
-admin.site.register(models.User_review, User_review_admin)
+admin.site.register(models.User_review)
 
 class Management_team_admin(admin.ModelAdmin):
     def get_model_perms(self, request):
@@ -75,36 +75,3 @@ class FAQ_modification(admin.ModelAdmin):
         model = models.Question_answer
 
 ## END register landing page and disable add and remove button
-
-## user custom
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django.contrib.auth.models import User
-
-class EmailRequiredMixin(object):
-    def __init__(self, *args, **kwargs):
-        super(EmailRequiredMixin, self).__init__(*args, **kwargs)
-        # make user email field required
-        # self.fields['email'].required = True
-        self.fields['first_name'].required = True
-        self.fields['last_name'].required = True
-
-
-class MyUserCreationForm(EmailRequiredMixin, UserCreationForm):
-    pass
-
-
-class MyUserChangeForm(EmailRequiredMixin, UserChangeForm):
-    pass
-
-
-class EmailRequiredUserAdmin(UserAdmin):
-    form = MyUserChangeForm
-    add_form = MyUserCreationForm
-    add_fieldsets = ((None, {
-        'fields': ('first_name', 'last_name', 'username', 'email', 'password1', 'password2'),
-        'classes': ('wide',)
-    }),)
-
-admin.site.unregister(User)
-admin.site.register(User, EmailRequiredUserAdmin)

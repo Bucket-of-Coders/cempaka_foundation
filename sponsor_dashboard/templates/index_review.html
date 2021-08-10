@@ -29,13 +29,13 @@
                     <li>
                         <a href="{% url 'dashboard_profile' %}">Profile</a>
                     </li>
-                    <li style="background-color:white;color:#7388D5">
+                    <li>
                         <a href="{% url 'dashboard_maps' %}">Tree Maps Location</a>
                     </li>
                     <li>
                         <a href="{% url 'dashboard_gallery' %}">Gallery</a>
                     </li>
-                    <li>
+                    <li style="background-color:white;color:#7388D5">
                         <a href="{% url 'dashboard_review' %}">Write Review</a>
                     </li>
                 </ul>
@@ -45,7 +45,6 @@
                     <li><a href="{% url 'logout' %}" class="article">Log Out</a></li>
                 </ul>
             </nav>
-
             <!-- Page Content Holder -->
             <div id="content">
 
@@ -58,23 +57,73 @@
                                 <span></span>
                                 <span></span>
                             </button>
-                            <p>Maps</p>
+                            <p>Profile</p>
                         </div>
 
                     </div>
                 </nav>
-                <div class="container" id="bs-example-navbar-collapse-1">
-                    {% if not fail %}
-                        <iframe src="{{ maps.urlmap }}" width="100%" height="100%"></iframe>
-                    {% else %}
-                        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Sorry, There are no tree being plant yet</h1>
-                        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">
-                            Please contact the <i>Cempaka Foundation</i> <a href="{% url 'landingpage' %}#contact">
-                            <i><u>here</u></i>
-                        </a>
-                        </h1>
-                    {% endif %}
-                </div>
+
+                <!-- Test dari default django -->
+<!--                {{ u_form }}-->
+<!--                {{ p_form }}-->
+                <!-- Test dari default django -->
+
+                <div class="container">
+                 <form action method="POST">{% csrf_token %}
+                    <h1>Profile</h1>
+                    <hr>
+                    <div class="row">
+                      <!-- edit form column -->
+                      <div class="col-md-9 personal-info">
+
+<!--                        for alert-->
+<!--                        <div class="alert alert-info alert-dismissable">-->
+<!--                          <a class="panel-close close" data-dismiss="alert">×</a>-->
+<!--                          <i class="fa fa-coffee"></i>-->
+<!--                          This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
+<!--                        </div>-->
+
+                        <h3>Review</h3>
+
+                        <div class="form-horizontal">
+
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Name:</label>
+                            <div class="col-lg-8">
+                              <input id="id_first_name" name="name" maxlength="30" class="form-control" type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Occupation:</label>
+                            <div class="col-lg-8">
+                              <input id="id_last_name" name="occupation" maxlength="150" class="form-control" type="text">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Write Review:</label>
+                            <div class="col-lg-8">
+                              <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                          </div>
+
+                          </div>
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                              <input type="submit" class="btn btn-primary" value="Save Review">
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                  </div>
+                 </form>
+            </div>
+            <hr>
+
             </div>
         </div>
 
