@@ -120,7 +120,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(18, 52, 87, 0.8);
 }
 
 #header .logo {
@@ -341,7 +341,7 @@ h6 {
 .mobile-nav li:hover > a {
   color: #151515;
   text-decoration: none;
-  background: #ffc451;
+  background: #12345731;
 }
 
 .mobile-nav .drop-down > a:after {
@@ -1444,15 +1444,15 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: black;
+  background: #123457;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #151515;
-  border-bottom: 1px solid #222222;
+  background: #123457;
+  border-bottom: 0px solid #222222;
   padding: 60px 0 30px 0;
 }
 
@@ -1484,7 +1484,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #292929;
+  background: #29292963;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
