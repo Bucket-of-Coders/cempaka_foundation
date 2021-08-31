@@ -24,12 +24,15 @@ AUTH_USER_MODEL = 'login.Users'
 SECRET_KEY = '%%a4%i0typ5ty^+td0j1y8c8$xuc-g1qlp4&c1e#=k)h=bfb9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
 ALLOWED_HOSTS = [
-    '192.168.100.8', ## iqbal ip
-    '127.0.0.1', #misalnya mau pake localhost tanpa certain ip
-    'demo-cempaka.herokuapp.com',
+    #'192.168.100.8', ## iqbal ip
+    #'127.0.0.1', #misalnya mau pake localhost tanpa certain ip
+    #'demo-cempaka.herokuapp.com',
+    '54.251.17.26',
+    'cempakafoundation.org',
+    'www.cempakafoundation.org'
 ]
 
 
@@ -93,12 +96,12 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 ## sementara pake cloud
 DATABASES = {
@@ -111,8 +114,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -151,9 +152,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 ## uncomment if want to run on local
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "staticfiles")
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles")
+]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
