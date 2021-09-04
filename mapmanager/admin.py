@@ -14,10 +14,9 @@ class KMZadmin(admin.ModelAdmin):
 
     change_list_template='admin/mapmanager/mapmanager.html'
     
-
-    
     def changelist_view(self, request, extra_context=None):
-        from django.contrib.auth.models import User
+        # from django.contrib.auth.models import User
+        from login.models import Users as User
         from .models import Posisipohon
 
         usernames=[]
@@ -26,10 +25,6 @@ class KMZadmin(admin.ModelAdmin):
         usernamesqry = User.objects.all()
         for index,username in enumerate(usernamesqry):
             usernames.append(username)     
-
-
-            
-
         extra_context = extra_context or {}
         extra_context['usernames'] = usernames
 
@@ -46,7 +41,8 @@ class KMZadmin(admin.ModelAdmin):
 
     def my_view(self, request, username):
         # ...
-        from django.contrib.auth.models import User
+        # from django.contrib.auth.models import User
+        from login.models import Users as User
         from .models import Posisipohon
         quser=User.objects.get(username=username)
 
@@ -63,19 +59,10 @@ class KMZadmin(admin.ModelAdmin):
                     urlmapedit=Posisipohon.objects.get(relasi=quser)
                     urlmapedit.urlmap=request.POST['urlmap']
                     urlmapedit.save()
-                    
-                    
-
                 # redirect to a new URL:
-                
                 return HttpResponseRedirect('/adminmapmanager/posisipohon/')
         else:
             form = Addurlform()
-
-
-        
-        
-        
         context = dict(
            # Include common variables for rendering the admin template.
            self.admin_site.each_context(request),
@@ -85,12 +72,12 @@ class KMZadmin(admin.ModelAdmin):
            frm=form
         )
 
-
         return TemplateResponse(request, "admin/mapmanager/previewmap.html", context)
 
     def addmap(self, request, username):
         # ...
-        from django.contrib.auth.models import User
+        # from django.contrib.auth.models import User
+        from login.models import Users as User
         from .models import Posisipohon
         if request.method == 'POST':
             form=Addurlform(request.POST)

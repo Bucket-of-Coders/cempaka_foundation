@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from login.models import Users as User
 
 # Create your models here.
 
@@ -12,7 +13,7 @@ class Posisipohon(models.Model):
     # kmz=models.FileField(upload_to='../media/kmz', verbose_name="")
     
     def __str__(self):
-        username=User.objects.get(username=self.relasi)
+        username=User.objects.all().filter(username=self.relasi)
         tampil= str(username)
         return tampil
     class Meta:
