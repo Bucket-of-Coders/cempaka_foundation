@@ -73,25 +73,30 @@
       
 
       {% block result_list %}
-          <!-- {% if action_form and actions_on_top and cl.show_admin_actions %}{% admin_actions %}{% endif %}
+          {% comment %} {% if action_form and actions_on_top and cl.show_admin_actions %}{% admin_actions %}{% endif %}
           {{ username }}
           {% result_list cl %}
-          {% if action_form and actions_on_bottom and cl.show_admin_actions %}{% admin_actions %}{% endif %} -->
+          {% if action_form and actions_on_bottom and cl.show_admin_actions %}{% admin_actions %}{% endif %} {% endcomment %}
+
         <div class="results">
         <table id="result_list">
         <thead>
         <tr >
-            <th scope="col"> Username </th><th>Map URL</th><th>Edit</th>
+            <th scope="col"><div class="text"><span>Username</span></div></th>
+            <th scope="col"><div class="text"><span>Map URL</span></div></th>
+            <th scope="col"><div class="text"><span>Edit</span></div></th>
         </tr>
         </thead>
 
         <tbody>
             {% for objek in usernames %}
             <tr>
-                <th>{{objek.username}}</th>
-                <th>{{objek.urlrelasi.urlmap}}</th>
-                <th> 
+                <th scope="col"><div class="text"><span>{{objek.username}}</span></div></th>
+                <th scope="col"><div class="text"><span>{{objek.urlrelasi.urlmap}}</span></div></th>
+                <th scope="col"><div class="text"><span>
                   <a class="btn btn-primary" href="/adminmapmanager/posisipohon/preview/{{ objek.username }}/">EDIT</a>
+                  </span>
+                </div> 
                 </th>
 
                 
@@ -99,7 +104,7 @@
             {% endfor %}
         </tbody>
         </table>
-        </div>
+        </div> 
 
 
 
