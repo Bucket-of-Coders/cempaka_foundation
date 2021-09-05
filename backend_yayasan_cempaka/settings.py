@@ -105,10 +105,10 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd4hustlcrgo2l2',
-        'USER': 'rbkmdiginvwwgi',
-        'PASSWORD': 'f6e5d1461068aec9e649f235322dd6add90db61af9ac05212aca57f5dd442027',
-        'HOST': 'ec2-34-193-113-223.compute-1.amazonaws.com',
+        'NAME': 'cempakafoundation',
+        'USER': 'cempaka',
+        'PASSWORD': 'cempakadatabase',
+        'HOST': '54.254.240.97',
         'PORT': '5432',
     }
 }
