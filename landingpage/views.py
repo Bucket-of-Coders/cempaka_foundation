@@ -60,8 +60,8 @@ def send_email(request):
 		receiver = [email]
 		text = f.read()
 
-		msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
-		msgSend.attach_alternative(text, 'text/html')
+		msgSend = EmailMultiAlternatives(subject, 'test', sender, receiver)
+		# msgSend.attach_alternative(text, 'text/html')
 		msgSend.send()
 
 	#send to cempaka
