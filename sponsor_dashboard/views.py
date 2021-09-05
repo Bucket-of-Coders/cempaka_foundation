@@ -11,7 +11,7 @@ from django.db import connection
 def dashboard_maps(request):
     try:
         data_sponsor = models.User_sponsor.objects.get(sponsor_user=request.user.id)
-        maps = Posisipohon.objects.get(relasi=request.user.id)
+        maps = Posisipohon.objects.get(relations=request.user.id)
         context = {
             'maps':maps,
             'user': data_sponsor
