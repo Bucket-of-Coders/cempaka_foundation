@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from utils import __env
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUTH_USER_MODEL = 'login.Users'
 
@@ -107,11 +109,11 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cempakafoundation',
-        'USER': 'cempaka',
-        'PASSWORD': 'cempakadatabase',
-        'HOST': '54.254.240.97',
-        'PORT': '5432',
+        'NAME': __env('DB_NAME', 'd4hustlcrgo2l2'),
+        'USER': __env('DB_USER', 'rbkmdiginvwwgi'),
+        'PASSWORD': __env('DB_PASS', 'f6e5d1461068aec9e649f235322dd6add90db61af9ac05212aca57f5dd442027'),
+        'HOST': __env('DB_HOST', 'ec2-34-193-113-223.compute-1.amazonaws.com'),
+        'PORT': __env('DB_PORT', '5432'),
     }
 }
 
