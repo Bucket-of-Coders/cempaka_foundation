@@ -8,7 +8,7 @@ from login.models import Users as User
 class Posisipohon(models.Model):
     # relasi=models.OneToOneField(User,on_delete=models.CASCADE)
     # relasi=User
-    relasi=models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, default="", related_name='urlrelasi')
+    relasi=models.OneToOneField(User,on_delete=models.CASCADE, default="", related_name='urlrelasi')
     urlmap=models.URLField(max_length=500,default='')
     # kmz=models.FileField(upload_to='../media/kmz', verbose_name="")
     

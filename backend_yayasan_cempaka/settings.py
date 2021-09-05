@@ -24,7 +24,7 @@ AUTH_USER_MODEL = 'login.Users'
 SECRET_KEY = '%%a4%i0typ5ty^+td0j1y8c8$xuc-g1qlp4&c1e#=k)h=bfb9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     #'192.168.100.8', ## iqbal ip
@@ -108,8 +108,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cempakafoundation',
         'USER': 'cempaka',
-        'PASSWORD': 'cempaka',
-        'HOST': 'localhost',
+        'PASSWORD': 'cempakadatabase',
+        'HOST': '54.254.240.97',
         'PORT': '5432',
     }
 }
