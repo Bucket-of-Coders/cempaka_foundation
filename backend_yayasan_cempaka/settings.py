@@ -174,7 +174,7 @@ EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@cempakafoundation.org'
-EMAIL_HOST_PASSWORD = __env('EMAIL_PASS', 'password')
+EMAIL_HOST_PASSWORD = __env('EMAIL_PASS', 'Di9xka0hhJyV')
 
 # import django_heroku
 # django_heroku.settings(locals())
