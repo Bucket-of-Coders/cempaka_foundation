@@ -147,7 +147,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -169,12 +169,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH='uploads/'
 
 ## E-mail settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+EMAIL_HOST = 'email-smtp.ap-southeast-1.amazonaws.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'info@cempakafoundation.org'
-EMAIL_HOST_PASSWORD = __env('EMAIL_PASS', 'Di9xka0hhJyV')
+AWS_ACCESS_KEY_ID = 'AKIAXI4ZSCD77U6KBG5Z'
+AWS_SECRET_ACCESS_KEY = 'BPSQhoU9MsOD9ZxVqTRIVR39jZSMaY/SWdHkZJzluo18'
 
 # import django_heroku
 # django_heroku.settings(locals())
