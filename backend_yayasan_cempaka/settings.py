@@ -173,8 +173,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bucketofcoders@bucketofcoders.com'
-EMAIL_HOST_PASSWORD = 'BucketOfCoders123'
+EMAIL_HOST_USER = 'info@cempakafoundation.org'
+EMAIL_HOST_PASSWORD = __env('EMAIL_PASS', 'password')
 
 # import django_heroku
 # django_heroku.settings(locals())
