@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
     'article.apps.ArticleConfig',
+    'maps_manager',
     'program_activity.apps.ProgramActivityConfig', #apps program_activity
-    'mapmanager.apps.MapmanagerConfig',
+    # 'mapmanager.apps.MapmanagerConfig',
     'sponsor_dashboard.apps.SponsorDashboardConfig',
     # django module apps
     'django.contrib.admin',
@@ -104,10 +105,10 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cempakafoundation',
-        'USER': 'cempaka',
-        'PASSWORD': 'cempakadatabase',
-        'HOST': '54.254.240.97',
+        'NAME': 'd4hustlcrgo2l2',
+        'USER': 'rbkmdiginvwwgi',
+        'PASSWORD': 'f6e5d1461068aec9e649f235322dd6add90db61af9ac05212aca57f5dd442027',
+        'HOST': 'ec2-34-193-113-223.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
