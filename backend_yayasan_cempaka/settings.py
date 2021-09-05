@@ -26,11 +26,11 @@ AUTH_USER_MODEL = 'login.Users'
 SECRET_KEY = '%%a4%i0typ5ty^+td0j1y8c8$xuc-g1qlp4&c1e#=k)h=bfb9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     #'192.168.100.8', ## iqbal ip
-    #'127.0.0.1', #misalnya mau pake localhost tanpa certain ip
+    '127.0.0.1', #misalnya mau pake localhost tanpa certain ip
     #'demo-cempaka.herokuapp.com',
     'cempakafoundation.org',
     'www.cempakafoundation.org'
