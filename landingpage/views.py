@@ -58,10 +58,10 @@ def send_email(request):
 	#send to user
 	with open('landingpage/email.html', encoding='utf8') as f:
 		receiver = [email]
-		text = Template(f.read())
+		text = f.read()
 
 		msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
-		msgSend.attach_alternative(text.substitute(), 'text/html')
+		msgSend.attach_alternative(text, 'text/html')
 		msgSend.send()
 
 	#send to cempaka
