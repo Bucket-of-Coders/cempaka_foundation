@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from utils import __env
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUTH_USER_MODEL = 'login.Users'
 
@@ -24,12 +26,14 @@ AUTH_USER_MODEL = 'login.Users'
 SECRET_KEY = '%%a4%i0typ5ty^+td0j1y8c8$xuc-g1qlp4&c1e#=k)h=bfb9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '192.168.100.8', ## iqbal ip
-    '127.0.0.1', #misalnya mau pake localhost tanpa certain ip
-    'demo-cempaka.herokuapp.com',
+    #'192.168.100.8', ## iqbal ip
+    #'127.0.0.1', #misalnya mau pake localhost tanpa certain ip
+    #'demo-cempaka.herokuapp.com',
+    'cempakafoundation.org',
+    'www.cempakafoundation.org'
 ]
 
 
@@ -94,26 +98,24 @@ WSGI_APPLICATION = 'backend_yayasan_cempaka.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 ## sementara pake cloud
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cempakafoundation',
-        'USER': 'cempaka',
-        'PASSWORD': 'cempakadatabase',
-        'HOST': '54.254.240.97',
-        'PORT': '5432',
+        'NAME': __env('DB_NAME', 'd4hustlcrgo2l2'),
+        'USER': __env('DB_USER', 'rbkmdiginvwwgi'),
+        'PASSWORD': __env('DB_PASS', 'f6e5d1461068aec9e649f235322dd6add90db61af9ac05212aca57f5dd442027'),
+        'HOST': __env('DB_HOST', 'ec2-34-193-113-223.compute-1.amazonaws.com'),
+        'PORT': __env('DB_PORT', '5432'),
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -157,6 +159,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+print(os.path.join(BASE_DIR, 'static'))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
