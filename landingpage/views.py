@@ -1,3 +1,5 @@
+from string import Template
+
 import article
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_protect
@@ -51,17 +53,29 @@ def send_email(request):
 		messages.success(request, "Your message has been sent. Thank you!")
 
 	##sending to
-	fromEmail1 = 'bucketofcoders@bucketofcoders.com'
-	to = [
-		'bucketofcoders@bucketofcoders.com',
-		'mochamadiqbal@bucketofcoders.com',
-		'void341@gmail.com'
-	]
+	sender = 'info@cempakafoundation.org'
 
-	bodyMsg = 'Message From Visitors\n' + 'Name : ' + name + '\nEmail : ' + email + '\nMessage : ' + body
+	#send to user
+	with open('landingpage/email.html', encoding='utf8') as f:
+		receiver = [email]
+		text = Template(f.read())
 
-	msgSend = EmailMultiAlternatives(subject, bodyMsg, fromEmail1, to)
-	msgSend.send()
+		msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
+		msgSend.attach_alternative(text.substitute(), 'text/html')
+		msgSend.send()
+
+	#send to cempaka
+	with open('landingpage/email_info.html', encoding='utf8') as f:
+		receiver = ['info@cempakafoundation.org']
+		text = Template(f.read())
+		text = text.substitute(
+			froms=email,
+			message=body
+		)
+
+		msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
+		msgSend.attach_alternative(text, 'text/html')
+		msgSend.send()
 
 	# end of send to client
 	return redirect('/#contact')
