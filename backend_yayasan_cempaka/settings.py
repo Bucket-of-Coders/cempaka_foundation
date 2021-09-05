@@ -106,7 +106,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cempakafoundation',
         'USER': 'cempaka',
-        'PASSWORD': 'cempaka',
+        'PASSWORD': 'cempakadatabase',
         'HOST': '54.254.240.97',
         'PORT': '5432',
     }
