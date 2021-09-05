@@ -56,25 +56,21 @@ def send_email(request):
 	sender = 'info@cempakafoundation.org'
 
 	#send to user
-	with open('landingpage/email.html', encoding='utf8') as f:
-		receiver = [email]
-		text = Template(f.read())
-
-		msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
-		msgSend.attach_alternative(text.substitute(), 'text/html')
-		msgSend.send()
+	# with open('landingpage/email.html', encoding='utf8') as f:
+	# 	receiver = [email]
+	# 	text = Template(f.read())
+	#
+	# 	msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
+	# 	msgSend.attach_alternative(text.substitute(), 'text/html')
+	# 	msgSend.send()
 
 	#send to cempaka
 	with open('landingpage/email_info.html', encoding='utf8') as f:
 		receiver = ['info@cempakafoundation.org']
 		text = Template(f.read())
-		text = text.substitute(
-			froms=email,
-			message=body
-		)
 
 		msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
-		msgSend.attach_alternative(text, 'text/html')
+		msgSend.attach_alternative(text.safe_substitute(froms=email,message=body), 'text/html')
 		msgSend.send()
 
 	# end of send to client
