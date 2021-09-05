@@ -30,7 +30,6 @@ ALLOWED_HOSTS = [
     #'192.168.100.8', ## iqbal ip
     #'127.0.0.1', #misalnya mau pake localhost tanpa certain ip
     #'demo-cempaka.herokuapp.com',
-    '54.251.17.26',
     'cempakafoundation.org',
     'www.cempakafoundation.org'
 ]
@@ -157,6 +156,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+print(os.path.join(BASE_DIR, 'static'))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
