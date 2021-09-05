@@ -169,7 +169,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH='uploads/'
 
 ## E-mail settings
-EMAIL_BACKEND = 'django_ses.SESBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'email-smtp.ap-southeast-1.amazonaws.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
