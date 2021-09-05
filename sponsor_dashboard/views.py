@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from . import models
-from mapmanager.models import Posisipohon
+from maps_manager.models import Posisipohon
 from django.contrib.auth.decorators import login_required
 from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from landingpage.models import User_review

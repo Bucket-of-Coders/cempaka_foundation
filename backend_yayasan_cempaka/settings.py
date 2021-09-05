@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
     'article.apps.ArticleConfig',
+    'maps_manager',
     'program_activity.apps.ProgramActivityConfig', #apps program_activity
-    'mapmanager.apps.MapmanagerConfig',
+    # 'mapmanager.apps.MapmanagerConfig',
     'sponsor_dashboard.apps.SponsorDashboardConfig',
     # django module apps
     'django.contrib.admin',

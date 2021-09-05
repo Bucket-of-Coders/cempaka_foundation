@@ -17,7 +17,6 @@ class KMZadmin(admin.ModelAdmin):
     def changelist_view(self, request, extra_context=None):
         # from django.contrib.auth.models import User
         from login.models import Users as User
-        from .models import Posisipohon
 
         usernames=[]
         kmzfiles=[]
@@ -53,14 +52,14 @@ class KMZadmin(admin.ModelAdmin):
                 # process the data in form.cleaned_data as required
                 # ...
                 try:
-                    addmapurl=Posisipohon(relasi=quser, urlmap=request.POST['urlmap'])
+                    addmapurl=Posisipohon(relations=quser, urlmap=request.POST['urlmap'])
                     addmapurl.save()
                 except:
-                    urlmapedit=Posisipohon.objects.get(relasi=quser)
+                    urlmapedit=Posisipohon.objects.get(relations=quser)
                     urlmapedit.urlmap=request.POST['urlmap']
                     urlmapedit.save()
                 # redirect to a new URL:
-                return HttpResponseRedirect('/adminmapmanager/posisipohon/')
+                return HttpResponseRedirect('/adminmaps_manager/posisipohon/')
         else:
             form = Addurlform()
         context = dict(
