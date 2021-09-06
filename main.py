@@ -51,7 +51,7 @@ async def send_email(emails: email_schema):
             message=emails.body
         )
         message_org = MessageSchema(
-            subject=emails.subject,
+            subject='User Question From Web',
             recipients=[receiver],  # List of recipients, as many as you can pass
             html=text
         )
