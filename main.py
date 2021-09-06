@@ -1,3 +1,5 @@
+from string import Template
+
 from fastapi import FastAPI
 from fastapi_mail import FastMail, MessageSchema,ConnectionConfig
 from starlette.requests import Request
@@ -11,10 +13,10 @@ import os
 app = FastAPI()
 
 class email_schema(BaseModel):
-    name: str
-    email: str
-    body: str
-    subject: str
+    name: str = None
+    email: str = None
+    body: str = None
+    subject: str = None
 
 @app.post("/send/email")
 async def send_email(emails: email_schema):
@@ -27,13 +29,33 @@ async def send_email(emails: email_schema):
        MAIL_SSL=False,
         MAIL_FROM=os.getenv('EMAIL_USER')
     )
-
-    message = MessageSchema(
-           subject=emails.subject,
-           recipients=[emails.email],  # List of recipients, as many as you can pass
-           body=emails.body
-           )
-
     fm = FastMail(conf)
-    await fm.send_message(message)
+
+    # send to cempaka
+    with open('email.html', encoding='utf8') as f:
+        text = Template(f.read())
+        text = text.safe_substitute()
+        message_org = MessageSchema(
+            subject=emails.subject,
+            recipients=[emails.email],  # List of recipients, as many as you can pass
+            body=text,
+            subtype = "html"
+        )
+        await fm.send_message(message_org)
+
+    # send to cempaka
+    with open('email_info.html', encoding='utf8') as f:
+        receiver = ['info@cempakafoundation.org']
+        text = Template(f.read())
+        text = text.safe_substitute(
+            froms=emails.email,
+            message=emails.body
+        )
+        message_org = MessageSchema(
+            subject=emails.subject,
+            recipients=[receiver],  # List of recipients, as many as you can pass
+            body=text,
+            subtype="html"
+        )
+        await fm.send_message(message_org)
     return HTTP_200_OK
