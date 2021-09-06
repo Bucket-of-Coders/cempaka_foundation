@@ -60,8 +60,10 @@ def send_email(request):
 		"subject": subject,
 		"body":body
 	}
-	json_data = json.dump(body_data)
-	req.post('https://bucket-email-api.herokuapp.com/send/email', json=json_data)
+	json_data = json.dumps(body_data)
+	print(json_data)
+	send = req.post('https://bucket-email-api.herokuapp.com/send/email', json=json_data)
+	print(send.status_code)
 
 	# ##sending to
 	# sender = 'info@cempakafoundation.org'
