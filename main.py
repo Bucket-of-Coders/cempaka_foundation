@@ -21,13 +21,13 @@ class email_schema(BaseModel):
 @app.post("/send/email")
 async def send_email(emails: email_schema):
     conf = ConnectionConfig(
-       MAIL_USERNAME='info@cempakafoundation.org',
-       MAIL_PASSWORD='Di9xka0hhJyV',
+       MAIL_USERNAME=os.getenv('EMAIL_USER'),
+       MAIL_PASSWORD=os.getenv('EMAIL_PASS'),
        MAIL_PORT=587,
        MAIL_SERVER="smtp.zoho.com",
        MAIL_TLS=True,
        MAIL_SSL=False,
-        MAIL_FROM='info@cempakafoundation.org'
+        MAIL_FROM=os.getenv('EMAIL_USER')
     )
     fm = FastMail(conf)
 
