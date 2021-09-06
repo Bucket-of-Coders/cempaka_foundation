@@ -1,8 +1,0 @@
-{% extends "admin/base_site.html" %}
-{% block content %}
-{{form}}
-<form method="post" enctype="multipart/form-data">
-{% csrf_token %}
-<button type="submit">Add</button>
-
-{% endblock %}
