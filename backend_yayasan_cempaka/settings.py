@@ -168,13 +168,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ## Ckeditor Config
 CKEDITOR_UPLOAD_PATH='uploads/'
 
-## E-mail settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'email-smtp.ap-southeast-1.amazonaws.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-AWS_ACCESS_KEY_ID = 'AKIAXI4ZSCD77U6KBG5Z'
-AWS_SECRET_ACCESS_KEY = 'BPSQhoU9MsOD9ZxVqTRIVR39jZSMaY/SWdHkZJzluo18'
-
 # import django_heroku
 # django_heroku.settings(locals())
