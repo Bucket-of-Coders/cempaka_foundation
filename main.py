@@ -48,7 +48,8 @@ async def send_email(emails: email_schema):
         text = Template(f.read())
         text = text.safe_substitute(
             froms=emails.email,
-            message=emails.body
+            message=emails.body,
+            subject=emails.subject
         )
         message_org = MessageSchema(
             subject='User Question From Web',
