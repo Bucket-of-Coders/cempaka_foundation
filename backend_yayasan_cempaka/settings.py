@@ -26,7 +26,7 @@ AUTH_USER_MODEL = 'login.Users'
 SECRET_KEY = '%%a4%i0typ5ty^+td0j1y8c8$xuc-g1qlp4&c1e#=k)h=bfb9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     #'192.168.100.8', ## iqbal ip
