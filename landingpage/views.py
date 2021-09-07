@@ -61,30 +61,6 @@ def send_email(request):
 		"body":body
 	}
 	json_data = json.dumps(body_data)
-	print(json_data)
-	send = req.post('https://bucket-email-api.herokuapp.com/send/email', json=json_data)
-	print(send.status_code)
+	send = req.post('https://bucket-email-api.herokuapp.com/send/email', data=json_data)
 
-	# ##sending to
-	# sender = 'info@cempakafoundation.org'
-	#
-	# #send to user
-	# with open('landingpage/email.html', encoding='utf8') as f:
-	# 	receiver = [email]
-	# 	text = f.read()
-	#
-	# 	msgSend = EmailMultiAlternatives(subject, 'test', sender, receiver)
-	# 	# msgSend.attach_alternative(text, 'text/html')
-	# 	msgSend.send()
-	#
-	# #send to cempaka
-	# with open('landingpage/email_info.html', encoding='utf8') as f:
-	# 	receiver = ['info@cempakafoundation.org']
-	# 	text = Template(f.read())
-	#
-	# 	msgSend = EmailMultiAlternatives(subject, '', sender, receiver)
-	# 	msgSend.attach_alternative(text.safe_substitute(froms=email,message=body), 'text/html')
-	# 	msgSend.send()
-
-	# end of send to client
 	return redirect('/#contact')
