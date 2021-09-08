@@ -163,7 +163,7 @@ print(os.path.join(BASE_DIR, 'static'))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = __env('MEDIA_PATH', os.path.join(BASE_DIR, 'media'))
 
 ## Ckeditor Config
 CKEDITOR_UPLOAD_PATH='uploads/'
