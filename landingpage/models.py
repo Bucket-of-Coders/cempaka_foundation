@@ -22,7 +22,7 @@ class Landing_page(models.Model):
     office_phone_number = models.CharField(default='', max_length=255)
 
     bank_name = models.CharField(default='', max_length=50)
-    no_rek = models.IntegerField(default=1)
+    no_rek = models.CharField(default='', max_length=100)
     bank_account_owner = models.CharField(default='', max_length=255) 
 
     class Meta:
