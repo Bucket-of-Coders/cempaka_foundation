@@ -3,105 +3,36 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 from django.urls import path
-from .models import Posisipohon
+from .models import Posisipohon,Maps
 from .forms import Addurlform
+from django.utils.html import format_html
+from datetime import date, datetime,timedelta
 # Register your models here.
 
 
 
-@admin.register(Posisipohon)
-class KMZadmin(admin.ModelAdmin):
 
-    change_list_template='admin/mapmanager/mapmanager.html'
+
+
+class Mapowner(admin.StackedInline):
+    model = Posisipohon
     
-    def changelist_view(self, request, extra_context=None):
-        # from django.contrib.auth.models import User
-        from login.models import Users as User
 
-        usernames=[]
-        kmzfiles=[]
-        model=Posisipohon
-        usernamesqry = User.objects.all()
-        for index,username in enumerate(usernamesqry):
-            usernames.append(username)     
-        extra_context = extra_context or {}
-        extra_context['usernames'] = usernames
-
-        return super().changelist_view(request,extra_context=extra_context)
-
-
-    def get_urls(self):
-        urls = super().get_urls()
-        my_urls = [
-            path('preview/<str:username>/', self.admin_site.admin_view(self.my_view)),
-            path('add/<str:username>/', self.admin_site.admin_view(self.addmap)),
-        ]
-        return my_urls + urls
-
-    def my_view(self, request, username):
-        # ...
-        # from django.contrib.auth.models import User
-        from login.models import Users as User
-        from .models import Posisipohon
-        quser=User.objects.get(username=username)
-
-        if request.method == 'POST':
-            form=Addurlform(request.POST)
-            if form.is_valid():
-                
-                # process the data in form.cleaned_data as required
-                # ...
-                try:
-                    addmapurl=Posisipohon(relations=quser, urlmap=request.POST['urlmap'])
-                    addmapurl.save()
-                except:
-                    urlmapedit=Posisipohon.objects.get(relations=quser)
-                    urlmapedit.urlmap=request.POST['urlmap']
-                    urlmapedit.save()
-                # redirect to a new URL:
-                return HttpResponseRedirect('/adminmaps_manager/posisipohon/')
+@admin.register(Maps)
+class KMZadmin(admin.ModelAdmin):
+    pass
+    inlines = [
+        Mapowner,
+    ]
+    list_display=('email','last_updated_year')
+    list_filter=('urlrelasi__year',)
+    search_fields = ['email']
+    fields=('email',)
+    readonly_fields=('email',)
+    def last_updated_year(self,obj):
+        f=Posisipohon.objects.filter(relations=obj).order_by('year').last()
+        if f:
+            return format_html(str(f.year)) 
         else:
-            form = Addurlform()
-        context = dict(
-           # Include common variables for rendering the admin template.
-           self.admin_site.each_context(request),
-           # Anything else you want in the context...
-           us=username,
-           user=quser,
-           frm=form
-        )
-
-        return TemplateResponse(request, "admin/mapmanager/previewmap.html", context)
-
-    def addmap(self, request, username):
-        # ...
-        # from django.contrib.auth.models import User
-        from login.models import Users as User
-        from .models import Posisipohon
-        if request.method == 'POST':
-            form=Addurlform(request.POST)
-            if form.is_valid():
-                # process the data in form.cleaned_data as required
-                # ...
-                # quser=User.objects.get(username=username)
-                # addmapurl=Posisipohon(relasi=username, urlmap=request.POST)
-                # redirect to a new URL:
-                return HttpResponseRedirect('/posisipohon/')
-        else:
-            form = Addurlform()
-
-        return render(request, 'admin/mapmanager/addmap.html', {'form': form})
-
- 
-        
-        
-        # context = dict(
-        #    # Include common variables for rendering the admin template.
-        #    self.admin_site.each_context(request),
-        #    # Anything else you want in the context...
-        #    us=username,
-        #    user=quser
-        # )
-
-
-        # return TemplateResponse(request, "admin/mapmanager/mapmanager.html", context)
+            return None
+    

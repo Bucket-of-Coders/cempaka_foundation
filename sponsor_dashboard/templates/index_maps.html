@@ -65,7 +65,18 @@
                 </nav>
                 <div class="container" id="bs-example-navbar-collapse-1">
                     {% if not fail %}
-                        <iframe src="{{ maps.urlmap }}" width="100%" height="100%"></iframe>
+                        <select name="year" id="year" class="form-control" >
+                        {%for year in years%}
+                            {%if year == years|last%}
+                                <option value="{{forloop.counter0}}" selected>{{year}}</option>
+                            {% else %}
+                                <option value="{{forloop.counter0}}">{{year}}</option>
+                            {%endif%}
+                        {%endfor%}
+                        </select>
+                        {%with map=maps|last %}
+                        <iframe src="{{ map.urlmap }}" width="100%" height="100%" id='map'></iframe>
+                        {%endwith%}
                     {% else %}
                         <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Sorry, There are no tree being plant yet</h1>
                         <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">
@@ -94,6 +105,15 @@
                      $(this).toggleClass('active');
                  });
              });
+         </script>
+         <script type="text/javascript">
+             map=document.getElementById('map')
+             selector=document.getElementById('year')
+             obj=JSON.parse('{{json|safe}}')
+             year.addEventListener('change', (event) => {
+                map.src=obj[selector.value].fields.urlmap
+
+                });
          </script>
     </body>
 </html>

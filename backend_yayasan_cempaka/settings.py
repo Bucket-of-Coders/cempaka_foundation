@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'landingpage.apps.LandingpageConfig',
     'login.apps.LoginConfig',
     'article.apps.ArticleConfig',
-    'maps_manager',
+    'maps_manager.apps.MapsManagerConfig',
     'program_activity.apps.ProgramActivityConfig', #apps program_activity
     # 'mapmanager.apps.MapmanagerConfig',
     'sponsor_dashboard.apps.SponsorDashboardConfig',

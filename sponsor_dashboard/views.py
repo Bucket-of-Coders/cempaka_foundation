@@ -1,3 +1,4 @@
+from django.db.models import fields
 from django.shortcuts import render, redirect
 from . import models
 from maps_manager.models import Posisipohon
@@ -5,18 +6,22 @@ from django.contrib.auth.decorators import login_required
 from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from landingpage.models import User_review
 from django.db import connection
+from django.core import serializers
 
 # Create your views here.
 @login_required(login_url='/user/login')
 def dashboard_maps(request):
     try:
         data_sponsor = models.User_sponsor.objects.get(sponsor_user=request.user.id)
-        maps = Posisipohon.objects.get(relations=request.user.id)
+        maps = Posisipohon.objects.filter(relations=request.user.id).order_by('year')
+        maps_json=serializers.serialize("json", maps,fields=('year','urlmap'))
         context = {
-            'maps':maps,
+            'years':[map.year for map in maps],
+            'maps': list(maps),
+            'json':maps_json,
             'user': data_sponsor
         }
-    except :
+    except Exception as e :
         context = {
             'fail': True
         }
